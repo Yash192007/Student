@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Campus Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">Campus Portal</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="student-dashboard.html">Student</a>
+        <a href="faculty-dashboard.html">Faculty</a>
+        <a href="admin-dashboard.html">Admin</a>
+        <a href="academic.html">Academic</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </header>
+
+    <main class="detail-grid">
+      <section class="form-panel">
+        <h2>Login to your account</h2>
+        <p>Enter your credentials to continue to the portal dashboard for your role.</p>
+        <form>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input id="email" type="email" placeholder="you@example.com">
+          </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Enter your password">
+          </div>
+          <div class="checkbox-field">
+            <input id="remember" type="checkbox">
+            <label for="remember">Remember me</label>
+          </div>
+          <a class="button button-primary" href="student-dashboard.html">Sign in</a>
+        </form>
+      </section>
+
+      <aside class="detail-card">
+        <h3>Login information</h3>
+        <p>Use your registered campus email and password. Students, faculty, and administrators each have tailored access and dashboard views.</p>
+        <strong>Need help?</strong>
+        <p>If you lost access, open the support page and submit a request.</p>
+      </aside>
+    </main>
+
+    <footer class="page-footer">Campus Portal © 2026 — Designed for modern academic workflows.</footer>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

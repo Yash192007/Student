@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">Campus Portal</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="student-dashboard.html">Student</a>
+        <a href="faculty-dashboard.html">Faculty</a>
+        <a href="admin-dashboard.html">Admin</a>
+        <a href="academic.html">Academic</a>
+        <a href="support.html">Support</a>
+        <a href="photo-slider.html">Gallery</a>
+      </nav>
+    </header>
+
+    <section class="hero hero-home">
+      <div class="hero-copy">
+        <p class="eyebrow">Home / Landing Page</p>
+        <h1>Login securely by role.</h1>
+        <p>Professional campus management starts here. Choose a role and enter your credentials to reach the appropriate dashboard.</p>
+        <div id="role-message" class="role-message">Select a role to begin secure login.</div>
+      </div>
+      <div class="hero-panel">
+        <div class="panel-card">
+          <h2>Student access</h2>
+          <p>Sign in with your student ID to view your classes, attendance, results, and assignments.</p>
+          <button class="button button-primary role-select-button" data-role="student" type="button">Login as Student</button>
+        </div>
+        <div class="panel-card panel-card-alt">
+          <h2>Faculty access</h2>
+          <p>Use your faculty credentials to manage courses, grade work, and review student performance.</p>
+          <button class="button button-secondary role-select-button" data-role="faculty" type="button">Login as Faculty</button>
+        </div>
+        <div class="panel-card panel-card-alt">
+          <h2>Admin access</h2>
+          <p>Sign in as administrator to manage users, notifications, and system configuration.</p>
+          <button class="button button-secondary role-select-button" data-role="admin" type="button">Login as Admin</button>
+        </div>
+      </div>
+    </section>
+
+    <main>
+    </main>
+  </div>
+
+  <div id="login-modal" class="login-modal" aria-hidden="true">
+    <div class="login-modal-backdrop" data-close="true"></div>
+    <div class="login-modal-content" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <button id="login-close" class="modal-close" type="button" aria-label="Close login form">×</button>
+      <div class="form-panel">
+        <h2 id="login-title">Login as <span id="login-role">Student</span></h2>
+        <p>Enter your campus credentials to continue.</p>
+        <form id="login-form">
+          <div class="form-field">
+            <label for="login-id">Campus ID</label>
+            <input id="login-id" name="loginId" type="text" placeholder="Enter your ID" required>
+          </div>
+          <div class="form-field">
+            <label for="login-password">Password</label>
+            <input id="login-password" name="loginPassword" type="password" placeholder="Enter your password" required>
+          </div>
+          <div id="login-error" class="login-error" aria-live="polite"></div>
+          <button class="button button-primary" type="submit">Continue</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+

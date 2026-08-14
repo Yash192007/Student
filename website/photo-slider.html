@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Photo Slider</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">Campus Portal</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="student-dashboard.html">Student</a>
+        <a href="faculty-dashboard.html">Faculty</a>
+        <a href="admin-dashboard.html">Admin</a>
+        <a href="academic.html">Academic</a>
+        <a href="support.html">Support</a>
+        <a href="photo-slider.html" aria-current="page">Gallery</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-gallery">
+        <div class="hero-copy">
+          <p class="eyebrow">Gallery / Campus Highlights</p>
+          <h1>Explore campus moments through a polished photo slider.</h1>
+          <p>Browse recent events, learning spaces, and student life in a clean carousel designed for your website.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="index.html">Back to Home</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="slider-card" aria-label="Campus photo slider">
+        <div class="slider-frame">
+          <button class="slider-control prev" type="button" aria-label="Previous slide">&#10094;</button>
+
+          <div class="slider-track">
+            <article class="slide active">
+              <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1400&q=80" alt="Students collaborating in a bright campus classroom">
+              <div class="slide-caption">
+                <h2>Learning in motion</h2>
+                <p>Bright classrooms and collaborative study spaces keep every session engaging.</p>
+              </div>
+            </article>
+
+            <article class="slide">
+              <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1400&q=80" alt="Campus library with students reading and working">
+              <div class="slide-caption">
+                <h2>Campus library</h2>
+                <p>Quiet corners and shared study tables support focused learning.</p>
+              </div>
+            </article>
+
+            <article class="slide">
+              <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1400&q=80" alt="Students enjoying a campus event outdoors">
+              <div class="slide-caption">
+                <h2>Community events</h2>
+                <p>Campus gatherings bring students, faculty, and staff together.</p>
+              </div>
+            </article>
+          </div>
+
+          <button class="slider-control next" type="button" aria-label="Next slide">&#10095;</button>
+        </div>
+
+        <div class="slider-dots" aria-label="Slide navigation">
+          <button class="dot active" type="button" data-slide="0" aria-label="Go to slide 1"></button>
+          <button class="dot" type="button" data-slide="1" aria-label="Go to slide 2"></button>
+          <button class="dot" type="button" data-slide="2" aria-label="Go to slide 3"></button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="slider.js"></script>
+</body>
+</html>

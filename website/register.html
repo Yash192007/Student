@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Campus Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">Campus Portal</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="student-dashboard.html">Student</a>
+        <a href="faculty-dashboard.html">Faculty</a>
+        <a href="admin-dashboard.html">Admin</a>
+        <a href="academic.html">Academic</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </header>
+
+    <main class="detail-grid">
+      <section class="form-panel">
+        <h2>Create a new campus account</h2>
+        <p>Register with your role to get the correct dashboard and access level immediately.</p>
+        <form>
+          <div class="form-field">
+            <label for="name">Full name</label>
+            <input id="name" type="text" placeholder="Your name">
+          </div>
+          <div class="form-field">
+            <label for="email-register">Email address</label>
+            <input id="email-register" type="email" placeholder="you@example.com">
+          </div>
+          <div class="form-field">
+            <label for="role">Role</label>
+            <input id="role" type="text" placeholder="Student, Faculty, Admin">
+          </div>
+          <div class="form-field">
+            <label for="password-register">Password</label>
+            <input id="password-register" type="password" placeholder="Create a password">
+          </div>
+          <a class="button button-primary" href="student-dashboard.html">Create account</a>
+        </form>
+      </section>
+
+      <aside class="detail-card">
+        <h3>Registration guide</h3>
+        <p>One account gives access to the appropriate dashboard based on your role: student, faculty, or administrator.</p>
+        <strong>Already registered?</strong>
+        <p>Go to the login page to sign in and access your personal portal.</p>
+      </aside>
+    </main>
+
+    <footer class="page-footer">Campus Portal © 2026 — Designed for modern academic workflows.</footer>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
