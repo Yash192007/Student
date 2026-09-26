@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,14 +21,23 @@
         <a href="academic.html">Academic</a>
         <a href="support.html">Support</a>
         <a href="photo-slider.html">Gallery</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark theme" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">&#9790;</span><span>Dark theme</span>
+        </button>
       </nav>
     </header>
 
+    <aside class="notification-banner" id="notification-banner" aria-label="Campus announcements">
+      <p><strong>Campus updates</strong> Semester results are available. Tech Fest registration is open. New study materials have been uploaded.</p>
+      <button class="notification-close" type="button" aria-label="Dismiss announcements">&times;</button>
+    </aside>
+
+    <main>
     <section class="hero hero-home">
       <div class="hero-copy">
-        <p class="eyebrow">Home / Landing Page</p>
-        <h1>Login securely by role.</h1>
-        <p>Professional campus management starts here. Choose a role and enter your credentials to reach the appropriate dashboard.</p>
+        <p class="eyebrow">Campus Portal</p>
+        <h1>Your campus, in one place.</h1>
+        <p>Keep track of academic updates, campus events, and the resources you need throughout the semester. Choose your role to continue to the right workspace.</p>
         <div id="role-message" class="role-message">Select a role to begin secure login.</div>
       </div>
       <div class="hero-panel">
@@ -50,7 +59,93 @@
       </div>
     </section>
 
-    <main>
+    <section class="home-quick-access" aria-labelledby="quick-access-title">
+      <div class="section-header">
+        <h2 id="quick-access-title">Quick access</h2>
+      </div>
+      <div class="overview-grid">
+        <article class="dashboard-card">
+          <span>Student services</span>
+          <h2>Academic details</h2>
+          <p>Review courses, attendance, assignments, and academic progress.</p>
+          <a class="text-link" href="academic.html">View academics</a>
+        </article>
+        <article class="dashboard-card">
+          <span>Campus life</span>
+          <h2>Photo gallery</h2>
+          <p>Browse campus events, learning spaces, and student life.</p>
+          <a class="text-link" href="photo-slider.html">Open gallery</a>
+        </article>
+        <article class="dashboard-card">
+          <span>Help center</span>
+          <h2>Student support</h2>
+          <p>Find account guidance and answers to common campus questions.</p>
+          <a class="text-link" href="support.html">Get support</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="section-header faq-header">
+        <div>
+          <p class="eyebrow">Support</p>
+          <h2 id="faq-title">Frequently asked questions</h2>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <article class="faq-item active">
+          <button class="faq-question" type="button" aria-expanded="true">
+            <span>How do I access my dashboard?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Select your role from the landing page, enter the matching campus ID and password, and you will be redirected to the correct dashboard.</p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>What can students do on the portal?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Students can check attendance, review academic results, access assignments, and stay updated with important announcements from the campus.</p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>How do faculty members manage courses?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button> 
+          <div class="faq-answer">
+            <p>Faculty users can view assigned courses, monitor student participation, update grades, and manage academic records from the faculty dashboard.</p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Who can access the admin panel?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Only authorized administrators can access the admin panel to manage users, announcements, and system-level campus settings.</p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Are the login details demo credentials?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. These examples are intentionally set up for the demo portal, allowing users to test role-based access in a secure sample environment.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     </main>
   </div>
 

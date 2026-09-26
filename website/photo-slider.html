@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,9 @@
         <a href="academic.html">Academic</a>
         <a href="support.html">Support</a>
         <a href="photo-slider.html" aria-current="page">Gallery</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark theme" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">&#9790;</span><span>Dark theme</span>
+        </button>
       </nav>
     </header>
 
@@ -78,6 +81,7 @@
     </main>
   </div>
 
+  <script src="script.js"></script>
   <script src="slider.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,8 +20,13 @@
         <a href="student-dashboard.html">Student</a>
         <a href="faculty-dashboard.html">Faculty</a>
         <a href="admin-dashboard.html">Admin</a>
+        <button class="result-tab" type="button" data-open-result aria-haspopup="dialog" aria-controls="result-modal-overlay" aria-expanded="false">Results</button>
         <a href="academic.html">Academic</a>
         <a href="support.html">Support</a>
+        <a href="photo-slider.html">Gallery</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark theme" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">&#9790;</span><span>Dark theme</span>
+        </button>
       </nav>
     </header>
 
@@ -68,6 +73,67 @@
     </main>
 
     <footer class="page-footer">Campus Portal © 2026 — Student workflow view.</footer>
+  </div>
+
+  <div id="result-modal-overlay" class="result-modal-overlay" aria-hidden="true">
+    <div class="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title" tabindex="-1">
+      <button id="close-result" class="result-close" type="button" aria-label="Close result">&times;</button>
+
+      <h2 id="result-title" class="result-title">Student Result</h2>
+
+      <div class="result-meta">
+        <p><strong>Name:</strong>Rohan</p>
+        <p><strong>Enrollment No:</strong> 25CS026</p>
+        <p><strong>Course:</strong> CSE</p>
+        <p><strong>Semester:</strong> 3</p>
+      </div>
+
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Web Development</td>
+            <td>88</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <td>Database Management</td>
+            <td>84</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <td>Java Programming</td>
+            <td>91</td>
+            <td>A+</td>
+          </tr>
+          <tr>
+            <td>Operating System</td>
+            <td>80</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <td>Computer Networks</td>
+            <td>86</td>
+            <td>A</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="result-summary">
+        <p><strong>Total:</strong> 429 / 500</p>
+        <p><strong>Percentage:</strong> 85.8%</p>
+        <p><strong>CGPA:</strong> 8.9</p>
+        <p class="result-pass"><strong>Result:</strong> PASS</p>
+      </div>
+
+      <button class="download-result" type="button">Download Result</button>
+    </div>
   </div>
 <script src="script.js"></script>
 </body>
