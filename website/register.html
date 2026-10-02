@@ -3,67 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register | Campus Portal</title>
+  <title>Student Registration | Campus Portal</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .registration-layout { grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr); }
+    .registration-panel { max-width: none; }
+    .registration-form { display: grid; gap: 2px 18px; grid-template-columns: minmax(0, 1fr); }
+    .registration-form .full-width, .registration-form button, .registration-form .success-message { grid-column: auto; }
+    .registration-form input, .registration-form select { min-height: 48px; }
+    .registration-form input.invalid, .registration-form select.invalid { border-color: #dc3545; }
+    .registration-form input.valid, .registration-form select.valid { border-color: #28a745; }
+    .field-error { display: none; margin-top: -7px; color: #dc3545; font-size: 0.82rem; }
+    .field-error.visible { display: block; }
+    .radio-group { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; min-height: 48px; }
+    .radio-option, .terms-option { display: flex; align-items: center; gap: 7px; color: var(--muted); font-weight: 400; }
+    .radio-option input, .terms-option input { width: auto; min-height: auto; accent-color: var(--accent); }
+    .password-help { margin: -7px 0 14px; color: var(--muted); font-size: 0.78rem; }
+    .success-message { display: none; padding: 12px 14px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-strong); font-weight: 600; }
+    .success-message.visible { display: block; }
+    @media (max-width: 780px) { .registration-layout, .registration-form { grid-template-columns: 1fr; } .registration-form .full-width, .registration-form button, .registration-form .success-message { grid-column: auto; } }
+  </style>
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header">
       <a class="brand" href="index.html">Campus Portal</a>
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
       <nav class="site-nav" id="site-nav">
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-        <a href="register.html">Register</a>
-        <a href="student-dashboard.html">Student</a>
-        <a href="faculty-dashboard.html">Faculty</a>
-        <a href="admin-dashboard.html">Admin</a>
-        <a href="academic.html">Academic</a>
-        <a href="support.html">Support</a>
-        <a href="photo-slider.html">Gallery</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark theme" aria-pressed="false">
-          <span class="theme-icon" aria-hidden="true">&#9790;</span><span>Dark theme</span>
-        </button>
+        <a href="index.html">Home</a><a href="login.html">Login</a><a href="register.html">Register</a><a href="student-dashboard.html">Student</a><a href="faculty-dashboard.html">Faculty</a><a href="admin-dashboard.html">Admin</a><a href="academic.html">Academic</a><a href="support.html">Support</a><a href="photo-slider.html">Gallery</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark theme" aria-pressed="false"><span class="theme-icon" aria-hidden="true">&#9790;</span><span>Dark theme</span></button>
       </nav>
     </header>
 
-    <main class="detail-grid">
-      <section class="form-panel">
-        <h2>Create a new campus account</h2>
-        <p>Register with your role to get the correct dashboard and access level immediately.</p>
-        <form>
-          <div class="form-field">
-            <label for="name">Full name</label>
-            <input id="name" type="text" placeholder="Your name">
-          </div>
-          <div class="form-field">
-            <label for="email-register">Email address</label>
-            <input id="email-register" type="email" placeholder="you@example.com">
-          </div>
-          <div class="form-field">
-            <label for="role">Role</label>
-            <input id="role" type="text" placeholder="Student, Faculty, Admin">
-          </div>
-          <div class="form-field">
-            <label for="password-register">Password</label>
-            <input id="password-register" type="password" placeholder="Create a password">
-          </div>
-          <a class="button button-primary" href="student-dashboard.html">Create account</a>
+    <main class="detail-grid registration-layout">
+      <section class="form-panel registration-panel">
+        <h2>Student Registration</h2>
+        <p>Complete all details to create your campus account.</p>
+        <form id="registration-form" class="registration-form" novalidate>
+          <div class="form-field"><label for="full-name">Full Name *</label><input id="full-name" name="name" type="text" placeholder="Enter your full name" autocomplete="name"><div class="field-error" id="name-error"></div></div>
+          <div class="form-field"><label for="email">Email *</label><input id="email" name="email" type="email" placeholder="example@gmail.com" autocomplete="email"><div class="field-error" id="email-error"></div></div>
+          <div class="form-field"><label for="mobile">Indian Mobile Number *</label><input id="mobile" name="mobile" type="tel" placeholder="10 digit mobile number" maxlength="10" inputmode="numeric" autocomplete="tel"><div class="field-error" id="mobile-error"></div></div>
+          <div class="form-field"><label for="course">Course *</label><select id="course" name="course"><option value="">-- Select Course --</option><option value="BCA">BCA</option><option value="BBA">BBA</option><option value="BSc">B.Sc</option><option value="BCom">B.Com</option><option value="BA">B.A</option></select><div class="field-error" id="course-error"></div></div>
+          <div class="form-field"><label for="password">Password *</label><input id="password" name="password" type="password" placeholder="Enter password" autocomplete="new-password"><p class="password-help">Minimum 8 characters, including uppercase, lowercase, number and special character.</p><div class="field-error" id="password-error"></div></div>
+          <div class="form-field"><label for="confirm-password">Confirm Password *</label><input id="confirm-password" type="password" placeholder="Re-enter password" autocomplete="new-password"><div class="field-error" id="confirm-password-error"></div></div>
+          <div class="form-field"><label for="year">Year *</label><select id="year" name="year"><option value="">-- Select Year --</option><option value="1">First Year</option><option value="2">Second Year</option><option value="3">Third Year</option><option value="4">Fourth Year</option></select><div class="field-error" id="year-error"></div></div>
+          <div class="form-field full-width"><label>Gender *</label><div class="radio-group"><label class="radio-option"><input type="radio" name="gender" value="Male"> Male</label><label class="radio-option"><input type="radio" name="gender" value="Female"> Female</label><label class="radio-option"><input type="radio" name="gender" value="Other"> Other</label></div><div class="field-error" id="gender-error"></div></div>
+          <div class="form-field full-width"><label class="terms-option"><input id="terms" type="checkbox"> I agree to the Terms and Conditions *</label><div class="field-error" id="terms-error"></div></div>
+          <div id="success-message" class="success-message" role="status">Registration successful!</div>
+          <button class="button button-primary" type="submit">Register</button>
         </form>
       </section>
-
-      <aside class="detail-card">
-        <h3>Registration guide</h3>
-        <p>One account gives access to the appropriate dashboard based on your role: student, faculty, or administrator.</p>
-        <strong>Already registered?</strong>
-        <p>Go to the login page to sign in and access your personal portal.</p>
-      </aside>
+      <aside class="detail-card"><h3>Registration guide</h3><p>Use an active email address and a valid Indian mobile number. Your course and year determine the academic tools shown after login.</p><strong>Password requirements</strong><p>Use at least 8 characters with uppercase, lowercase, a number, and a special character.</p><strong>Already registered?</strong><p>Go to the login page to access your personal portal.</p></aside>
     </main>
-
-    <footer class="page-footer">Campus Portal © 2026 — Designed for modern academic workflows.</footer>
+    <footer class="page-footer">Campus Portal &copy; 2026 - Designed for modern academic workflows.</footer>
   </div>
-<script src="script.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const registrationForm = document.getElementById('registration-form');
+    const fields = {
+      name: [document.getElementById('full-name'), document.getElementById('name-error')],
+      email: [document.getElementById('email'), document.getElementById('email-error')],
+      mobile: [document.getElementById('mobile'), document.getElementById('mobile-error')],
+      password: [document.getElementById('password'), document.getElementById('password-error')],
+      confirmPassword: [document.getElementById('confirm-password'), document.getElementById('confirm-password-error')],
+      course: [document.getElementById('course'), document.getElementById('course-error')],
+      year: [document.getElementById('year'), document.getElementById('year-error')]
+    };
+
+    function setFieldState(field, error, message) {
+      field.classList.toggle('invalid', Boolean(message)); field.classList.toggle('valid', !message); error.textContent = message || ''; error.classList.toggle('visible', Boolean(message)); return !message;
+    }
+
+    function validateRegistration() {
+      const name = fields.name[0].value.trim(); const email = fields.email[0].value.trim(); const mobile = fields.mobile[0].value.trim(); const password = fields.password[0].value;
+      const results = [
+        setFieldState(fields.name[0], fields.name[1], !name ? 'Name is required.' : !/^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/.test(name) ? 'Name can contain only letters, spaces, apostrophes or hyphens.' : ''),
+        setFieldState(fields.email[0], fields.email[1], !email ? 'Email is required.' : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? 'Please enter a valid email address.' : ''),
+        setFieldState(fields.mobile[0], fields.mobile[1], !/^([6-9]\d{9})$/.test(mobile) ? 'Enter a valid 10-digit Indian mobile number.' : ''),
+        setFieldState(fields.password[0], fields.password[1], !/(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z\d])/.test(password) ? 'Use 8+ characters with uppercase, lowercase, number and special character.' : ''),
+        setFieldState(fields.confirmPassword[0], fields.confirmPassword[1], fields.confirmPassword[0].value !== password ? 'Passwords do not match.' : ''),
+        setFieldState(fields.course[0], fields.course[1], !fields.course[0].value ? 'Please select a course.' : ''),
+        setFieldState(fields.year[0], fields.year[1], !fields.year[0].value ? 'Please select your year.' : '')
+      ];
+      const genderValid = document.querySelector('input[name="gender"]:checked'); document.getElementById('gender-error').textContent = genderValid ? '' : 'Please select your gender.'; document.getElementById('gender-error').classList.toggle('visible', !genderValid);
+      const termsValid = document.getElementById('terms').checked; document.getElementById('terms-error').textContent = termsValid ? '' : 'You must agree to the Terms and Conditions.'; document.getElementById('terms-error').classList.toggle('visible', !termsValid);
+      return results.every(Boolean) && Boolean(genderValid) && termsValid;
+    }
+
+    fields.mobile[0].addEventListener('input', event => { event.target.value = event.target.value.replace(/\D/g, ''); });
+    registrationForm.addEventListener('submit', event => {
+      event.preventDefault(); document.getElementById('success-message').classList.remove('visible');
+      if (!validateRegistration()) { const firstInvalid = registrationForm.querySelector('.invalid'); if (firstInvalid) firstInvalid.focus(); return; }
+      document.getElementById('success-message').classList.add('visible');
+      const params = new URLSearchParams({ name: fields.name[0].value.trim(), email: fields.email[0].value.trim() });
+      window.setTimeout(() => { window.location.href = `form-submission.html?${params.toString()}`; }, 500);
+    });
+  </script>
 </body>
 </html>

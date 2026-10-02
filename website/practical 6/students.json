@@ -1,0 +1,17 @@
+[
+  {"id":"ST-2401","name":"Aarav Patel","program":"Computer Science","year":1,"email":"aarav.patel@campus.edu","gpa":3.72},
+  {"id":"ST-2402","name":"Maya Chen","program":"Biology","year":2,"email":"maya.chen@campus.edu","gpa":3.91},
+  {"id":"ST-2403","name":"Noah Williams","program":"Business","year":3,"email":"noah.williams@campus.edu","gpa":3.48},
+  {"id":"ST-2404","name":"Priya Shah","program":"Computer Science","year":2,"email":"priya.shah@campus.edu","gpa":3.86},
+  {"id":"ST-2405","name":"Ethan Brooks","program":"History","year":4,"email":"ethan.brooks@campus.edu","gpa":3.35},
+  {"id":"ST-2406","name":"Sofia Garcia","program":"Psychology","year":1,"email":"sofia.garcia@campus.edu","gpa":3.67},
+  {"id":"ST-2407","name":"Liam O'Connor","program":"Biology","year":3,"email":"liam.oconnor@campus.edu","gpa":3.58},
+  {"id":"ST-2408","name":"Amara Johnson","program":"Business","year":2,"email":"amara.johnson@campus.edu","gpa":3.94},
+  {"id":"ST-2409","name":"Lucas Martin","program":"Engineering","year":4,"email":"lucas.martin@campus.edu","gpa":3.41},
+  {"id":"ST-2410","name":"Zara Ahmed","program":"Psychology","year":3,"email":"zara.ahmed@campus.edu","gpa":3.82},
+  {"id":"ST-2411","name":"Oliver Kim","program":"Engineering","year":1,"email":"oliver.kim@campus.edu","gpa":3.29},
+  {"id":"ST-2412","name":"Isabella Rossi","program":"History","year":2,"email":"isabella.rossi@campus.edu","gpa":3.76},
+  {"id":"ST-2413","name":"Mateo Rivera","program":"Computer Science","year":4,"email":"mateo.rivera@campus.edu","gpa":3.63},
+  {"id":"ST-2414","name":"Nina Thompson","program":"Business","year":1,"email":"nina.thompson@campus.edu","gpa":3.54},
+  {"id":"ST-2415","name":"Kai Nakamura","program":"Engineering","year":3,"email":"kai.nakamura@campus.edu","gpa":3.88}
+]

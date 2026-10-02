@@ -1,0 +1,17 @@
+[
+  {"id":1,"question":"How do I access my student dashboard?","category":"Accounts","answer":"Choose Student from the portal navigation and sign in with your campus ID and password."},
+  {"id":2,"question":"How can I reset my password?","category":"Accounts","answer":"Use the password recovery link on the login page or contact the campus IT help desk."},
+  {"id":3,"question":"Where can I find my course schedule?","category":"Academics","answer":"Your current schedule is available from the Academic section of the student portal."},
+  {"id":4,"question":"When are final grades published?","category":"Academics","answer":"Instructors publish final grades after the end-of-term review period."},
+  {"id":5,"question":"How do I request an enrollment letter?","category":"Records","answer":"Submit an enrollment verification request through the registrar's office."},
+  {"id":6,"question":"Where can I view my tuition balance?","category":"Finance","answer":"Open the Fees section of your student account to review charges and payments."},
+  {"id":7,"question":"Can I pay fees in installments?","category":"Finance","answer":"Installment options are listed by the student finance office for eligible accounts."},
+  {"id":8,"question":"How do I borrow books from the library?","category":"Library","answer":"Bring your campus ID to the library desk or use your ID at a self-checkout station."},
+  {"id":9,"question":"How do I reserve a study room?","category":"Library","answer":"Reserve an available room using the library's online booking service."},
+  {"id":10,"question":"Where can I get technical support?","category":"Technology","answer":"Contact the IT help desk in person or submit a support request through the portal."},
+  {"id":11,"question":"How do I connect to campus Wi-Fi?","category":"Technology","answer":"Select the campus secure network and sign in with your university account."},
+  {"id":12,"question":"How can I join a student club?","category":"Campus Life","answer":"Browse the student activities directory and contact a club representative to join."},
+  {"id":13,"question":"Where can I find campus counseling services?","category":"Wellness","answer":"The wellness center provides confidential appointments and same-day support options."},
+  {"id":14,"question":"How do I register for a campus event?","category":"Campus Life","answer":"Open the Events section, choose an event, and follow its registration details."},
+  {"id":15,"question":"Who should I contact about accessibility accommodations?","category":"Wellness","answer":"Contact the accessibility services office to discuss accommodations and available support."}
+]

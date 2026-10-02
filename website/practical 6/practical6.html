@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Explorer | Campus Portal</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="practical6.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">Campus Portal</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="../index.html">Home</a>
+        <a href="../student-dashboard.html">Student</a>
+        <a href="../academic.html">Academic</a>
+        <a href="../support.html">Support</a>
+        <a href="practical6.html" aria-current="page">Data explorer</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark theme" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">&#9790;</span><span>Dark theme</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="data-explorer">
+      <header class="explorer-heading">
+        <p class="eyebrow">Campus records</p>
+        <h1>Data explorer</h1>
+        <p>Browse events, students, and support answers from the campus data files.</p>
+      </header>
+
+      <section class="explorer-controls" aria-label="Record controls">
+        <div class="control-field dataset-field">
+          <label for="dataset-picker">Dataset</label>
+          <select id="dataset-picker">
+            <option value="events">Events</option>
+            <option value="students">Students</option>
+            <option value="faqs">FAQs</option>
+          </select>
+        </div>
+        <div class="control-field search-field">
+          <label for="record-search">Search records</label>
+          <input id="record-search" type="search" placeholder="Search all fields" autocomplete="off">
+        </div>
+        <div class="control-field">
+          <label id="filter-label" for="filter-picker">Category</label>
+          <select id="filter-picker"><option value="">All categories</option></select>
+        </div>
+        <div class="control-field">
+          <label for="sort-picker">Sort by</label>
+          <select id="sort-picker"></select>
+        </div>
+        <div class="control-field">
+          <label for="sort-direction">Order</label>
+          <select id="sort-direction">
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
+          </select>
+        </div>
+        <div class="control-field page-size-field">
+          <label for="page-size">Per page</label>
+          <select id="page-size">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="data-workspace" class="data-workspace" aria-busy="true" aria-label="Dataset records">
+        <div class="results-heading">
+          <p id="result-count" class="result-count"></p>
+          <p id="data-status" class="data-status" role="status" aria-live="polite">Loading events...</p>
+          <button id="retry-load" class="button button-secondary retry-button" type="button" hidden>Try again</button>
+        </div>
+        <div id="record-grid" class="record-grid"></div>
+        <nav id="pagination" class="pagination" aria-label="Record pages" hidden>
+          <button id="previous-page" class="button button-secondary page-button" type="button">Previous</button>
+          <span id="page-status" aria-live="polite">Page 1 of 1</span>
+          <button id="next-page" class="button button-secondary page-button" type="button">Next</button>
+        </nav>
+      </section>
+    </main>
+  </div>
+  <script src="../script.js"></script>
+  <script type="module" src="practical6.js"></script>
+</body>
+</html>

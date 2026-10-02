@@ -1,0 +1,17 @@
+[
+  {"id":1,"title":"Welcome Week Opening","date":"2026-09-08","category":"Campus","location":"Central Quad","description":"Meet student groups and explore campus services."},
+  {"id":2,"title":"Robotics Showcase","date":"2026-09-12","category":"Technology","location":"Engineering Hall","description":"See student-built robots and live demonstrations."},
+  {"id":3,"title":"Autumn Music Night","date":"2026-09-18","category":"Arts","location":"Riverside Auditorium","description":"An evening of performances by campus musicians."},
+  {"id":4,"title":"Research and Innovation Forum","date":"2026-09-23","category":"Academic","location":"Library Conference Center","description":"Faculty and students present current research."},
+  {"id":5,"title":"Campus Wellness Fair","date":"2026-10-02","category":"Wellness","location":"Student Commons","description":"Connect with health, counseling, and recreation teams."},
+  {"id":6,"title":"Debate Society Open","date":"2026-10-07","category":"Clubs","location":"West Lecture Theatre","description":"Join a friendly debate and meet the society."},
+  {"id":7,"title":"Green Campus Volunteer Day","date":"2026-10-11","category":"Community","location":"North Gardens","description":"Help plant native species around campus."},
+  {"id":8,"title":"Career Connections Expo","date":"2026-10-16","category":"Career","location":"Athletics Pavilion","description":"Meet employers and explore internship opportunities."},
+  {"id":9,"title":"Data Science Guest Lecture","date":"2026-10-21","category":"Academic","location":"Science Building 204","description":"A visiting researcher discusses responsible AI."},
+  {"id":10,"title":"Interfaculty Football Final","date":"2026-10-25","category":"Sports","location":"Main Field","description":"Support the teams in the campus league final."},
+  {"id":11,"title":"Film Society Screening","date":"2026-11-01","category":"Arts","location":"Media Room","description":"A student-curated international film screening."},
+  {"id":12,"title":"Entrepreneurship Workshop","date":"2026-11-06","category":"Career","location":"Innovation Lab","description":"Shape an early-stage idea with local founders."},
+  {"id":13,"title":"International Food Festival","date":"2026-11-12","category":"Community","location":"Student Commons","description":"Share dishes and traditions from around the world."},
+  {"id":14,"title":"Library Study Skills Session","date":"2026-11-18","category":"Academic","location":"Learning Commons","description":"Practice research, citation, and exam strategies."},
+  {"id":15,"title":"Winter Arts Market","date":"2026-11-27","category":"Arts","location":"Central Quad","description":"Browse crafts and artwork made by campus creators."}
+]

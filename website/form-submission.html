@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Submitted | Campus Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">Campus Portal</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="student-dashboard.html">Student</a>
+        <a href="faculty-dashboard.html">Faculty</a>
+        <a href="admin-dashboard.html">Admin</a>
+        <a href="academic.html">Academic</a>
+        <a href="support.html">Support</a>
+        <a href="photo-slider.html">Gallery</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark theme" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">&#9790;</span><span>Dark theme</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="detail-grid">
+      <section class="form-panel">
+        <p class="eyebrow">Registration received</p>
+        <h2>Your campus account request is ready</h2>
+        <p>Thanks, <strong id="submitted-name">there</strong>. We have received your registration details and will prepare your campus access.</p>
+        <p>A confirmation will be sent to <strong id="submitted-email">your email address</strong>.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="login.html">Continue to login</a>
+          <a class="button button-secondary" href="index.html">Return home</a>
+        </div>
+      </section>
+
+      <aside class="detail-card">
+        <h3>What happens next?</h3>
+        <p>Your role determines which campus dashboard and tools become available after sign-in.</p>
+        <strong>Keep your credentials private.</strong>
+        <p>For account questions, contact the campus support team.</p>
+      </aside>
+    </main>
+
+    <footer class="page-footer">Campus Portal &copy; 2026 - Designed for modern academic workflows.</footer>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    const submittedDetails = new URLSearchParams(window.location.search);
+    const submittedName = submittedDetails.get('name');
+    const submittedEmail = submittedDetails.get('email');
+
+    if (submittedName) {
+      document.getElementById('submitted-name').textContent = submittedName;
+    }
+
+    if (submittedEmail) {
+      document.getElementById('submitted-email').textContent = submittedEmail;
+    }
+  </script>
+</body>
+</html>
