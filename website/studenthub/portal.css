@@ -1,0 +1,152 @@
+.portal-main {
+  min-height: 65vh;
+  padding: 28px 0;
+}
+
+.portal-panel,
+.portal-card {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.portal-panel {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.portal-panel h1,
+.portal-panel h2 {
+  margin-top: 0;
+}
+
+.portal-form,
+.portal-form-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.portal-form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.portal-field {
+  display: grid;
+  gap: 6px;
+}
+
+.portal-field.full-width,
+.portal-actions.full-width {
+  grid-column: 1 / -1;
+}
+
+.portal-field label {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.portal-field input,
+.portal-field select,
+.portal-field textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.portal-field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.portal-message {
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.portal-message.error {
+  border-color: #dc8e83;
+  color: #a93227;
+}
+
+html[data-theme="dark"] .portal-message.error {
+  color: #ff9b8e;
+}
+
+.portal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.portal-actions form {
+  margin: 0;
+}
+
+.portal-table-wrap {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.portal-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+.portal-table th,
+.portal-table td {
+  padding: 10px;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.portal-table th {
+  background: var(--surface-muted);
+}
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.portal-stat {
+  margin: 8px 0 0;
+  color: var(--accent-strong);
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.portal-poster {
+  width: 120px;
+  max-height: 84px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.portal-inline {
+  display: inline;
+}
+
+.portal-muted {
+  color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  .portal-form-grid,
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,4 @@
+Options -Indexes
+<FilesMatch "\.(jsonl|csv|php|phtml|phar)$">
+  Require all denied
+</FilesMatch>

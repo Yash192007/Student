@@ -1,6 +1,84 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const siteNav = document.querySelector('.site-nav');
+  if (siteNav && siteNav.dataset.serverNav !== 'true') {
+    const brand = document.querySelector('.brand');
+    const siteRoot = brand ? new URL(brand.getAttribute('href'), window.location.href) : new URL('.', window.location.href);
+    const appRoot = new URL('studenthub/', siteRoot);
+    const themeToggle = document.createElement('button');
+    themeToggle.type = 'button';
+    themeToggle.className = 'theme-toggle';
+    themeToggle.dataset.themeToggle = '';
+    themeToggle.setAttribute('aria-label', 'Dark theme');
+    themeToggle.setAttribute('aria-pressed', 'false');
+    themeToggle.innerHTML = '<span class="theme-icon" aria-hidden="true">&#9790;</span><span>Dark theme</span>';
+
+    function renderNavigation(user = null) {
+      const links = [
+        ['Home', new URL('index.html', siteRoot)],
+      ];
+      if (user) {
+        links.push(['Dashboard', new URL(user.dashboard, appRoot)]);
+      }
+      links.push(
+        ['Academic', new URL('academic.html', siteRoot)],
+        ['Events', new URL('events.php', appRoot)],
+        ['Contact', new URL('support.html', siteRoot)],
+        ['Data explorer', new URL('practical 6/practical6.html', siteRoot)],
+        ['Gallery', new URL('photo-slider.html', siteRoot)],
+      );
+      if (user?.role === 'admin') {
+        links.push(
+          ['Students', new URL('students.php', appRoot)],
+          ['Faculty accounts', new URL('faculty.php', appRoot)],
+        );
+      }
+      if (!user) {
+        links.push(
+          ['Login', new URL('login.php', appRoot)],
+          ['Register', new URL('register.php', appRoot)],
+        );
+      }
+
+      const items = links.map(([label, url]) => {
+        const link = document.createElement('a');
+        link.textContent = label;
+        link.href = url.href;
+        if (url.pathname === window.location.pathname) {
+          link.setAttribute('aria-current', 'page');
+        }
+        return link;
+      });
+
+      if (user) {
+        const logoutForm = document.createElement('form');
+        logoutForm.className = 'nav-logout';
+        logoutForm.method = 'post';
+        logoutForm.action = user.logout_url;
+        const csrf = document.createElement('input');
+        csrf.type = 'hidden';
+        csrf.name = 'csrf_token';
+        csrf.value = user.csrf_token;
+        const logoutButton = document.createElement('button');
+        logoutButton.type = 'submit';
+        logoutButton.textContent = 'Log out';
+        logoutForm.append(csrf, logoutButton);
+        items.push(logoutForm);
+      }
+
+      siteNav.replaceChildren(...items, themeToggle);
+    }
+
+    renderNavigation();
+    fetch(new URL('navigation.php', appRoot), { credentials: 'same-origin' })
+      .then(response => {
+        if (!response.ok) throw new Error(`Navigation request failed (${response.status})`);
+        return response.json();
+      })
+      .then(result => renderNavigation(result.user || null))
+      .catch(error => console.error('Could not refresh the portal navigation.', error));
+  }
+
   const menuToggle = document.querySelector('.menu-toggle');
-  const siteNav = document.getElementById('site-nav');
 
   if (menuToggle && siteNav) {
     menuToggle.addEventListener('click', () => {
@@ -126,80 +204,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const roleButtons = document.querySelectorAll('.role-select-button');
-  const loginModal = document.getElementById('login-modal');
-  const loginRole = document.getElementById('login-role');
-  const loginForm = document.getElementById('login-form');
-  const loginError = document.getElementById('login-error');
-  const loginClose = document.getElementById('login-close');
-  const loginBackdrop = document.querySelector('.login-modal-backdrop');
   const roleMessage = document.getElementById('role-message');
-
-  const roleLabels = {
-    student: 'Student',
-    faculty: 'Faculty',
-    admin: 'Admin',
-  };
-
-  const credentials = {
-    student: { id: 'student01', password: 'student123', redirect: 'student-dashboard.html' },
-    faculty: { id: 'faculty01', password: 'faculty123', redirect: 'faculty-dashboard.html' },
-    admin: { id: 'admin01', password: 'admin123', redirect: 'admin-dashboard.html' },
-  };
-
-  if (!roleButtons.length || !loginModal || !loginRole || !loginForm || !roleMessage) {
-    return;
-  }
-
-  let currentRole = 'student';
-
-  function setActiveRoleButton(activeRole) {
-    roleButtons.forEach(button => {
-      button.classList.toggle('active-role', button.dataset.role === activeRole);
-    });
-  }
-
-  function openLoginModal(role) {
-    currentRole = role;
-    loginRole.textContent = roleLabels[role];
-    loginError.textContent = '';
-    loginForm.reset();
-    loginModal.classList.add('visible');
-    loginModal.setAttribute('aria-hidden', 'false');
-    roleMessage.textContent = `Login as ${roleLabels[role]} with your campus credentials.`;
-    setActiveRoleButton(role);
-  }
-
-  function closeLoginModal() {
-    loginModal.classList.remove('visible');
-    loginModal.setAttribute('aria-hidden', 'true');
-  }
-
-  roleButtons.forEach(button => {
+  document.querySelectorAll('.role-select-button').forEach(button => {
     button.addEventListener('click', () => {
-      openLoginModal(button.dataset.role);
+      const role = button.dataset.role;
+      if (!['student', 'faculty', 'admin'].includes(role)) return;
+      const brand = document.querySelector('.brand');
+      const siteRoot = brand ? new URL(brand.getAttribute('href'), window.location.href) : new URL('.', window.location.href);
+      const loginUrl = new URL('studenthub/login.php', siteRoot);
+      loginUrl.searchParams.set('role', role);
+      window.location.href = loginUrl.href;
     });
-  });
-
-  if (loginClose) {
-    loginClose.addEventListener('click', closeLoginModal);
-  }
-
-  if (loginBackdrop) {
-    loginBackdrop.addEventListener('click', closeLoginModal);
-  }
-
-  loginForm.addEventListener('submit', event => {
-    event.preventDefault();
-    const id = event.target.loginId.value.trim();
-    const password = event.target.loginPassword.value.trim();
-    const expected = credentials[currentRole];
-
-    if (id === expected.id && password === expected.password) {
-      window.location.href = expected.redirect;
-      return;
-    }
-
-    loginError.textContent = 'Invalid ID or password. Please try again.';
   });
 });
